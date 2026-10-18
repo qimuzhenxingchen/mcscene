@@ -117,9 +117,10 @@
 - [x] `CONTEST_DECLARATION.md`（官方原文，一字未改）
 - [x] `MCP_INTEGRATION.md`
 - [x] `mcp-config.example.json`（仅 `${MCD_MCP_TOKEN}`）
-- [ ] `workbuddy.md`（10-22 补）
+- [ ] `workbuddy.md`（需替换为用户导出的真实 WorkBuddy 对话记录）
 - [x] 源代码（`skill/`）
-- [ ] GitHub 公开仓库（10-23）
+- [x] GitHub 公开仓库：https://github.com/qimuzhenxingchen/mcscene（2026-10-18 19:10 push，匿名访问 200 已验证）
+- [ ] 报名 Issue（等 workbuddy.md 替换后提交，或先报后补）
 
 ---
 
