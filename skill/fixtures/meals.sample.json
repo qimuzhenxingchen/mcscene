@@ -1,0 +1,25 @@
+{
+  "SIMULATED": true,
+  "_note": "示例菜单，仅用于离线演示引擎逻辑。价格与菜品名均为模拟，不代表任何门店的真实菜单或价格。真实方案必须由 MCP query-meals + calculate-price 提供。",
+  "store": {
+    "storeCode": "SIMULATED-0001",
+    "name": "模拟门店（非真实门店）",
+    "beCode": null,
+    "orderType": 1
+  },
+  "items": [
+    { "code": "SIM-B001", "name": "模拟经典牛肉堡", "category": "burger", "price": 15.0, "kcal": 480, "tags": [] },
+    { "code": "SIM-B002", "name": "模拟辣味鸡腿堡", "category": "burger", "price": 14.5, "kcal": 520, "tags": ["spicy"] },
+    { "code": "SIM-B003", "name": "模拟板烧鸡腿堡", "category": "burger", "price": 17.0, "kcal": 460, "tags": [] },
+    { "code": "SIM-B004", "name": "模拟双层牛肉堡", "category": "burger", "price": 22.0, "kcal": 620, "tags": [] },
+    { "code": "SIM-S001", "name": "模拟中份薯条", "category": "side", "price": 12.0, "kcal": 340, "tags": ["hot"] },
+    { "code": "SIM-S002", "name": "模拟玉米杯", "category": "side", "price": 11.0, "kcal": 120, "tags": ["hot"] },
+    { "code": "SIM-S003", "name": "模拟鸡块六块装", "category": "chicken", "price": 13.0, "kcal": 260, "tags": ["shareable"] },
+    { "code": "SIM-D001", "name": "模拟中杯可乐", "category": "drink", "price": 9.0, "kcal": 200, "tags": ["cold", "caffeine"] },
+    { "code": "SIM-D002", "name": "模拟纯牛奶", "category": "drink", "price": 8.0, "kcal": 130, "tags": ["cold"] },
+    { "code": "SIM-D003", "name": "模拟热柠檬茶", "category": "drink", "price": 10.0, "kcal": 90, "tags": ["hot"] },
+    { "code": "SIM-E001", "name": "模拟冰淇淋甜筒", "category": "dessert", "price": 6.0, "kcal": 180, "tags": ["cold"] },
+    { "code": "SIM-E002", "name": "模拟冰淇淋杯", "category": "dessert", "price": 15.5, "kcal": 380, "tags": ["cold"] },
+    { "code": "SIM-E003", "name": "模拟派", "category": "dessert", "price": 8.0, "kcal": null, "tags": ["hot"] }
+  ]
+}

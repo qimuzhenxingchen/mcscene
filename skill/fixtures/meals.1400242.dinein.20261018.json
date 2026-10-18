@@ -1,0 +1,293 @@
+{
+  "SIMULATED": false,
+  "_note": "真实菜单快照：麦当劳广州龙洞第二餐厅（storeCode 1400242，龙洞购物中心首层），到店自取，采集于 2026-10-18 17:42（GMT+8），来源 McDonald's China MCP query-meals 实时返回。价格会过期，正式方案一律重新拉取。；kcal 来自 2026-10-18 list-nutrition-foods 实时返回，歧义口味(麦旋风/派/新地)与组合品保持 null，由引擎按 UNKNOWN 保护处理。",
+  "store": {
+    "storeCode": "1400242",
+    "name": "麦当劳广州龙洞第二餐厅",
+    "address": "龙洞购物中心首层",
+    "distance_m": 130,
+    "orderType": 1,
+    "beType": 1
+  },
+  "items": [
+    {
+      "code": "1120",
+      "name": "双层吉士汉堡",
+      "category": "burger",
+      "price": 23.0,
+      "tags": [],
+      "kcal": 429
+    },
+    {
+      "code": "1100",
+      "name": "巨无霸",
+      "category": "burger",
+      "price": 26.5,
+      "tags": [],
+      "kcal": 513
+    },
+    {
+      "code": "1406",
+      "name": "板烧鸡腿堡",
+      "category": "burger",
+      "price": 24.0,
+      "tags": [],
+      "kcal": 391
+    },
+    {
+      "code": "1440",
+      "name": "麦辣鸡腿汉堡",
+      "category": "burger",
+      "price": 23.0,
+      "tags": [
+        "spicy"
+      ],
+      "kcal": 485
+    },
+    {
+      "code": "1450",
+      "name": "麦香鸡",
+      "category": "burger",
+      "price": 17.0,
+      "tags": [],
+      "kcal": 369
+    },
+    {
+      "code": "9900008747",
+      "name": "牛肉堡单品精选",
+      "category": "burger",
+      "price": 14.0,
+      "tags": [],
+      "kcal": 248
+    },
+    {
+      "code": "4810",
+      "name": "薯条",
+      "category": "side",
+      "price": 14.0,
+      "tags": [
+        "hot"
+      ],
+      "kcal": 289
+    },
+    {
+      "code": "4437",
+      "name": "玉米杯",
+      "category": "side",
+      "price": 13.5,
+      "tags": [
+        "hot"
+      ],
+      "kcal": 87
+    },
+    {
+      "code": "521741",
+      "name": "脆薯饼",
+      "category": "side",
+      "price": 8.5,
+      "tags": [
+        "hot"
+      ],
+      "kcal": 146
+    },
+    {
+      "code": "6102",
+      "name": "苹果片",
+      "category": "side",
+      "price": 7.0,
+      "tags": [],
+      "kcal": 32
+    },
+    {
+      "code": "1401",
+      "name": "麦乐鸡",
+      "category": "chicken",
+      "price": 14.5,
+      "tags": [
+        "shareable"
+      ],
+      "kcal": 213
+    },
+    {
+      "code": "1700",
+      "name": "麦辣鸡翅",
+      "category": "chicken",
+      "price": 15.0,
+      "tags": [
+        "spicy",
+        "shareable"
+      ],
+      "kcal": 224
+    },
+    {
+      "code": "9900016076",
+      "name": "“我就喜欢”鸡薯双全盒",
+      "category": "chicken",
+      "price": 15.9,
+      "tags": [
+        "shareable"
+      ],
+      "kcal": null
+    },
+    {
+      "code": "9900008751",
+      "name": "可乐",
+      "category": "drink",
+      "price": 9.5,
+      "tags": [
+        "cold",
+        "caffeine"
+      ],
+      "kcal": 147
+    },
+    {
+      "code": "3010",
+      "name": "雪碧",
+      "category": "drink",
+      "price": 9.5,
+      "tags": [
+        "cold"
+      ],
+      "kcal": 105
+    },
+    {
+      "code": "515280",
+      "name": "阳光柠檬红茶",
+      "category": "drink",
+      "price": 9.5,
+      "tags": [
+        "cold"
+      ],
+      "kcal": 117
+    },
+    {
+      "code": "3505",
+      "name": "锡兰红茶",
+      "category": "drink",
+      "price": 11.0,
+      "tags": [
+        "hot"
+      ],
+      "kcal": 2
+    },
+    {
+      "code": "3755",
+      "name": "纯牛奶(盒装)",
+      "category": "drink",
+      "price": 10.5,
+      "tags": [
+        "cold"
+      ],
+      "kcal": 129
+    },
+    {
+      "code": "3757",
+      "name": "纯悦",
+      "category": "drink",
+      "price": 7.5,
+      "tags": [
+        "cold"
+      ],
+      "kcal": 0
+    },
+    {
+      "code": "520689",
+      "name": "鲜萃咖啡",
+      "category": "drink",
+      "price": 10.0,
+      "tags": [
+        "hot",
+        "caffeine"
+      ],
+      "kcal": 13
+    },
+    {
+      "code": "507411",
+      "name": "麦咖啡™美式",
+      "category": "drink",
+      "price": 11.9,
+      "tags": [
+        "hot",
+        "caffeine"
+      ],
+      "kcal": 13
+    },
+    {
+      "code": "507409",
+      "name": "麦咖啡™奶铁",
+      "category": "drink",
+      "price": 13.9,
+      "tags": [
+        "hot",
+        "caffeine"
+      ],
+      "kcal": 148
+    },
+    {
+      "code": "9900008754",
+      "name": "经典麦旋风",
+      "category": "dessert",
+      "price": 15.0,
+      "tags": [
+        "cold"
+      ],
+      "kcal": null
+    },
+    {
+      "code": "515837",
+      "name": "圆筒冰淇淋",
+      "category": "dessert",
+      "price": 5.0,
+      "tags": [
+        "cold"
+      ],
+      "kcal": 93
+    },
+    {
+      "code": "521951",
+      "name": "灰焰圆筒",
+      "category": "dessert",
+      "price": 5.0,
+      "tags": [
+        "cold"
+      ],
+      "kcal": null
+    },
+    {
+      "code": "9900008752",
+      "name": "派",
+      "category": "dessert",
+      "price": 8.5,
+      "tags": [
+        "hot"
+      ],
+      "kcal": null
+    },
+    {
+      "code": "9900008745",
+      "name": "新地",
+      "category": "dessert",
+      "price": 12.5,
+      "tags": [
+        "cold"
+      ],
+      "kcal": null
+    },
+    {
+      "code": "9900013304",
+      "name": "人气经典随心配",
+      "category": "side",
+      "price": 14.9,
+      "tags": [],
+      "kcal": null
+    },
+    {
+      "code": "9900015568",
+      "name": "精选超值随心配",
+      "category": "side",
+      "price": 13.9,
+      "tags": [],
+      "kcal": null
+    }
+  ]
+}

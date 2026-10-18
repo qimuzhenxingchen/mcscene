@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦事 · 庆生结果卡</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+       background: #f4f1ea; color: #2b2520; padding: 16px; max-width: 420px;
+       margin: 0 auto; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px;
+         margin-right: 6px; }
+.badge.sim { background: #fde8d7; color: #a04d00; border: 1px solid #e8a865; }
+.badge.real { background: #d7f0dd; color: #1c6b32; border: 1px solid #7dc794; }
+h1 { font-size: 20px; margin: 10px 0 2px; }
+.sub { font-size: 13px; color: #7a7066; margin-bottom: 14px; }
+.card { background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.card h2 { font-size: 14px; color: #a04d00; margin-bottom: 8px; }
+.greeting { font-size: 15px; line-height: 1.7; }
+.greeting p { margin-bottom: 6px; }
+.why { font-size: 12px; color: #8a8074; margin-top: 4px; }
+ul.items { list-style: none; }
+ul.items li { display: flex; justify-content: space-between; font-size: 14px;
+              padding: 5px 0; border-bottom: 1px dashed #eee2d5; }
+ul.items li:last-child { border-bottom: none; }
+.total { display: flex; justify-content: space-between; font-weight: 700;
+         font-size: 16px; padding-top: 8px; }
+.meta { font-size: 12px; color: #8a8074; margin-top: 8px; line-height: 1.6; }
+.footer { font-size: 11px; color: #a89e91; text-align: center; margin-top: 14px;
+          line-height: 1.6; }
+.plan-tab { display: inline-block; font-size: 12px; font-weight: 700; color: #fff;
+            background: #c04f2a; border-radius: 6px; padding: 2px 10px;
+            margin-bottom: 8px; }
+.plan-tab.save { background: #2e7d4f; }
+.plan-tab.bal { background: #b58a2e; }
+</style>
+</head>
+<body>
+<span class="badge sim">SIMULATED 演示数据</span>
+<h1>麦事 · 庆生</h1>
+<div class="sub">恋人 · 2 人份 · 门店由你选择（演示卡为模拟门店）</div>
+
+<div class="card">
+  <h2>心意卡</h2>
+  <div class="greeting"><p>不知道说什么，就先给你点一份你爱吃的。</p><p>今天不用打卡，只要好好吃一顿。</p><p>吃完记得拍照给我看。</p></div>
+</div>
+
+
+<div class="card">
+  <span class="plan-tab ">心意款</span>
+  <ul class="items"><li><span>模拟双层牛肉堡</span><span>¥22.00</span></li><li><span>模拟板烧鸡腿堡</span><span>¥17.00</span></li><li><span>模拟冰淇淋杯</span><span>¥15.50</span></li><li><span>模拟鸡块六块装</span><span>¥13.00</span></li><li><span>模拟中份薯条</span><span>¥12.00</span></li></ul>
+  <div class="total"><span>合计</span><span>¥79.50</span></div>
+  <div class="meta">约 2060 kcal</div>
+  <div class="why">庆生场合，甜品是标配；优先可分享</div>
+</div>
+<div class="card">
+  <span class="plan-tab save">省钱款</span>
+  <ul class="items"><li><span>模拟双层牛肉堡</span><span>¥22.00</span></li><li><span>模拟板烧鸡腿堡</span><span>¥17.00</span></li><li><span>模拟冰淇淋杯</span><span>¥15.50</span></li><li><span>模拟鸡块六块装</span><span>¥13.00</span></li><li><span>模拟派</span><span>¥8.00</span></li></ul>
+  <div class="total"><span>合计</span><span>¥75.50</span></div>
+  <div class="meta">&gt;=1720 kcal（其中 1 项热量未知，未计入）</div>
+  <div class="why">同样的场合要求，花最少的钱办到</div>
+</div>
+<div class="card">
+  <span class="plan-tab bal">均衡款</span>
+  <ul class="items"><li><span>模拟双层牛肉堡</span><span>¥22.00</span></li><li><span>模拟板烧鸡腿堡</span><span>¥17.00</span></li><li><span>模拟冰淇淋杯</span><span>¥15.50</span></li><li><span>模拟鸡块六块装</span><span>¥13.00</span></li><li><span>模拟热柠檬茶</span><span>¥10.00</span></li></ul>
+  <div class="total"><span>合计</span><span>¥77.50</span></div>
+  <div class="meta">约 1810 kcal</div>
+  <div class="why">在心意和预算之间取中，覆盖两边诉求</div>
+</div>
+
+<div class="card">
+  <div class="meta">最终金额以 calculate-price 实时返回为准，下单前需你确认。<br>本卡由 mcscene 生成，非麦当劳官方产品。</div>
+</div>
+
+<div class="footer">菜品与价格来自麦当劳中国官方 MCP（演示卡为模拟数据）<br>
+支付永远由你自己完成</div>
+</body>
+</html>

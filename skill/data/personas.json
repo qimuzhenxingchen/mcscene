@@ -1,0 +1,87 @@
+{
+  "_note": "语气与文案素材库。只放词句，不放价格/菜名——菜名与价格一律来自麦当劳 MCP 实时返回。docs/COPY-GUARD.md 是这里的红线。",
+  "version": "0.1.0",
+  "tones": {
+    "warm": {
+      "name": "温润",
+      "desc": "适合长辈、父母、家人生日。少用网络词，emoji 少量、偏生活化，不用颜文字卖萌。",
+      "emoji_level": "low",
+      "emoji": ["🍵", "🍚", "🌅", "🧡"],
+      "kaomoji": [],
+      "openers": ["今天这一顿，就当是我请你。", "不多说什么，先吃点好的。", "没什么大不了的，就是想让你吃顿顺口的。"],
+      "closers": ["生日快乐，慢慢吃。", "别急着回消息，吃完再说。", "照顾好自己，比什么都强。"],
+      "banned": ["破防", "绝绝子", "yyds", "666"]
+    },
+    "sweet": {
+      "name": "甜",
+      "desc": "适合恋人、暧昧期。可以笨拙，不要油腻。emoji 和颜文字放开用，每句最多一个。",
+      "emoji_level": "high",
+      "emoji": ["🍔", "🍟", "✨", "📸", "🍦", "♡"],
+      "kaomoji": ["(´꒳`)♡", "(๑˃ᴗ˂)ﻭ", "(¬‿¬)", "(っ˘ω˘c)"],
+      "openers": ["不知道说什么，就先给你点了一份你爱吃的。", "今天的理由很简单：想让你开心。", "你负责吃，我负责记得。"],
+      "closers": ["吃完记得拍照给我看看呀。", "下次换你请我。", "生日快乐，慢慢吃。"],
+      "banned": ["宝贝儿~", "亲亲", "亲爱的老婆大人"]
+    },
+    "funny": {
+      "name": "损友",
+      "desc": "适合朋友、同事、室友。要损，但别真的伤人。emoji 可以皮，颜文字多用脸部的。",
+      "emoji_level": "high",
+      "emoji": ["🍟", "🤝", "😎", "🫡", "🍦"],
+      "kaomoji": ["(๑•̀ㅂ•́)و✧", "(￣▽￣)", "(¬‿¬)", "(っ˘ω˘c)"],
+      "openers": ["别谢我，谢薯条。", "这顿我请，下次你请，记着账呢。", "看在你今天过生日的份上。"],
+      "closers": ["吃完了记得说好吃，不然白请。", "生日快乐，明年更富。", "别浪费，浪费我下次不请了。"],
+      "banned": ["你终于有人要了", "单身狗", "胖"]
+    },
+    "sincere": {
+      "name": "诚恳",
+      "desc": "适合道歉、感谢、安慰。不找借口，不卖惨。emoji 只用表达歉意的（🙇🙏），颜文字克制。",
+      "emoji_level": "medium",
+      "emoji": ["🙇", "🙏", "🍦", "☕"],
+      "kaomoji": ["(っ- ‸ - ς)", "(っ˘ω˘c)"],
+      "openers": ["上次是我没做好，这顿算我的。", "不知道该说什么，就想请你吃顿饭。", "这顿不代表什么，只是我想道个歉。"],
+      "closers": ["吃好点，别跟我客气。", "不用回我，吃完就好。", "以后我注意。"],
+      "banned": ["你别生气", "我也不容易", "都是因为"]
+    },
+    "steady": {
+      "name": "克制",
+      "desc": "适合同事、上级、客户、不熟的人。得体优先，情绪降级。emoji 只用职场安全的（☕💪），禁用颜文字。",
+      "emoji_level": "low",
+      "emoji": ["☕", "💪", "🌙", "✅"],
+      "kaomoji": [],
+      "openers": ["一点心意，请笑纳。", "辛苦了，加个餐。", "小小心意，不成敬意。"],
+      "closers": ["祝顺利。", "工作辛苦，注意休息。", "如有打扰，见谅。"],
+      "banned": ["兄弟", "老铁", "冲", "奥利给"]
+    }
+  },
+  "persona_cards": {
+    "lover": { "label": "恋人", "default_tone": "sweet", "notes": "可提及纪念日、共同记忆的抽象表达，禁止编造具体事件" },
+    "spouse": { "label": "伴侣", "default_tone": "warm", "notes": "婚后口吻更日常，少甜言蜜语" },
+    "parent": { "label": "父母", "default_tone": "warm", "notes": "长辈偏实用，强调吃得顺口、少油少盐可作附注" },
+    "child": { "label": "孩子", "default_tone": "funny", "notes": "K1-K3 年龄段注意不含咖啡因、不推辣" },
+    "friend": { "label": "朋友", "default_tone": "funny", "notes": "损友感，避免人身攻击类玩笑" },
+    "colleague": { "label": "同事", "default_tone": "steady", "notes": "中性称呼，不涉及办公室政治" },
+    "boss": { "label": "上级", "default_tone": "steady", "notes": "称呼用职务，不表功" },
+    "client": { "label": "客户", "default_tone": "steady", "notes": "不暗示利益输送，不含商业暗示" },
+    "self": { "label": "自己", "default_tone": "funny", "notes": "自嘲可以，不要丧到负面情绪" },
+    "team": { "label": "团队", "default_tone": "funny", "notes": "集体口吻，不点名批评" }
+  },
+  "occasions": {
+    "birthday": { "label": "生日", "default_tone": "sweet", "reinforce": ["甜品", "汉堡"] },
+    "anniversary": { "label": "纪念日", "default_tone": "sweet", "reinforce": ["甜品"] },
+    "apology": { "label": "道歉", "default_tone": "sincere", "reinforce": ["招牌单品"] },
+    "thanks": { "label": "答谢", "default_tone": "sincere", "reinforce": [] },
+    "apology_soften": { "label": "和好", "default_tone": "sincere", "reinforce": ["甜品"] },
+    "cheer_up": { "label": "安慰", "default_tone": "warm", "reinforce": ["热饮", "甜品"] },
+    "overtime": { "label": "加班慰问", "default_tone": "steady", "reinforce": ["热饮", "咖啡"] },
+    "celebrate": { "label": "庆祝", "default_tone": "funny", "reinforce": ["汉堡", "甜品"] },
+    "confession": { "label": "表白", "default_tone": "sweet", "reinforce": ["甜品"] },
+    "farewell": { "label": "送别", "default_tone": "sincere", "reinforce": [] },
+    "proposal_soft": { "label": "求原谅/求复合", "default_tone": "sincere", "reinforce": [] },
+    "just_because": { "label": "没理由", "default_tone": "warm", "reinforce": [] }
+  },
+  "tone_switch_rules": [
+    { "if": "relationship in [boss, client]", "then": "tone=steady", "reason": "得当比有情绪重要" },
+    { "if": "occasion == apology and relationship in [lover, spouse]", "then": "tone=sincere", "reason": "道歉时不要甜言蜜语糊过去" },
+    { "if": "reason contains '不知道说什么'", "then": "keep_tone", "reason": "用户已经给了情绪基调，不要覆盖" }
+  ]
+}

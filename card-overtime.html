@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦事 · 加班慰问结果卡</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+       background: #f3ede1;
+       background-image: radial-gradient(#e8dfcd 1px, transparent 1px);
+       background-size: 18px 18px;
+       color: #33281e; padding: 14px; max-width: 400px; margin: 0 auto; }
+
+.hero { position: relative; border-radius: 18px 18px 14px 14px; overflow: hidden;
+        background: linear-gradient(135deg, #ffd75e 0%, #ffab2e 60%, #ff9024 100%);
+        padding: 20px 18px 16px; color: #4a2c00;
+        box-shadow: 0 4px 14px rgba(217,119,6,.25); }
+.hero .emoji { font-size: 34px; line-height: 1; }
+.hero h1 { font-size: 22px; margin: 6px 0 2px; letter-spacing: 1px; }
+.chips { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { background: rgba(255,255,255,.75); color: #7a4a00; font-size: 12px;
+        padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+
+.greeting { position: relative; background: #fffdf8; border-radius: 14px;
+            padding: 18px 16px 14px; margin: 12px 0;
+            border: 1px solid #f0e2c8; }
+.greeting::before { content: "\201C"; position: absolute; top: -2px; left: 10px;
+            font-size: 52px; color: #ffd75e; font-family: Georgia, serif;
+            line-height: 1; }
+.greeting .line { font-size: 15px; line-height: 1.9; padding-left: 26px; }
+.greeting .line + .line { margin-top: 2px; }
+
+.plan-tab { display: inline-flex; align-items: center; gap: 5px; font-size: 12px;
+            font-weight: 800; color: #fff; border-radius: 8px 8px 8px 2px;
+            padding: 4px 12px; letter-spacing: 2px; }
+.tab-xinyi { background: linear-gradient(135deg, #ff8a3d, #e8590c); }
+.tab-bal    { background: linear-gradient(135deg, #4dabf7, #1971c2); }
+.tab-save   { background: linear-gradient(135deg, #51cf66, #2f9e44); }
+
+.card { background: #fffdf8; border-radius: 14px; padding: 16px;
+        margin: 12px 0; box-shadow: 0 2px 8px rgba(90,60,20,.08); }
+
+ul.items { list-style: none; margin-top: 10px; }
+ul.items li { display: flex; align-items: baseline; font-size: 14px; padding: 6px 0; }
+ul.items .name { color: #3d3225; }
+ul.items .dots { flex: 1; border-bottom: 2px dotted #e5d9c3; margin: 0 8px 4px; }
+ul.items .price { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.total { display: flex; align-items: baseline; margin-top: 10px; padding-top: 10px;
+         border-top: 2px dashed #eadfc8; }
+.total .label { font-size: 13px; color: #8a7a60; }
+.total .amount { margin-left: auto; font-size: 22px; font-weight: 800;
+                 font-variant-numeric: tabular-nums; }
+.save-chip { margin-left: auto; font-size: 11px; font-weight: 700; color: #2f9e44;
+             background: #e6f7eb; border-radius: 12px; padding: 2px 8px; }
+.total .amount.with-chip { margin-left: 8px; }
+
+.meta { display: flex; align-items: flex-start; gap: 6px; font-size: 12px;
+        color: #8a7a60; margin-top: 8px; line-height: 1.6; }
+.why { font-size: 12px; color: #a08c6a; margin-top: 8px; padding: 8px 10px;
+       background: #faf5e9; border-radius: 8px; line-height: 1.6; }
+.compare { font-size: 12px; color: #8a7a60; margin: 2px 4px 12px; line-height: 1.7; }
+
+.footer { text-align: center; font-size: 11px; color: #a89a80; margin: 16px 0 8px;
+          line-height: 1.8; }
+.divider { text-align: center; font-size: 12px; letter-spacing: 8px; margin: 2px 0;
+           color: #d4b96a; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="badge real">✓ 已用 MCP 实时核价</span>
+  <div class="emoji">🌙</div>
+  <h1>麦事 · 加班慰问</h1>
+  <div class="chips">
+    <span class="chip">💌 给同事</span>
+    <span class="chip">👥 1 人份</span>
+  </div>
+</div>
+
+<div class="greeting"><div class="line">加班辛苦啦，加个餐 ☕</div><div class="line">咖啡趁热喝，别空着肚子硬撑 💪</div><div class="line">不用回消息，吃就行 🫡</div></div>
+<div class="divider">🍟 🍟 🍟</div>
+
+<div class="card">
+  <span class="plan-tab tab-xinyi">💝 心意款</span>
+  <ul class="items"><li><span class="name">牛肉堡单品精选</span><span class="dots"></span><span class="price">¥14.00</span></li><li><span class="name">“我就喜欢”鸡薯双全盒</span><span class="dots"></span><span class="price">¥15.90</span></li><li><span class="name">经典麦旋风</span><span class="dots"></span><span class="price">¥15.00</span></li><li><span class="name">麦咖啡™奶铁</span><span class="dots"></span><span class="price">¥13.90</span></li></ul>
+  <div class="total"><span class="label">小计</span>
+    <span class="amount">¥58.80</span></div>
+  <div class="meta">🔥 &gt;=396 kcal（其中 2 项热量未知，未计入）</div>
+  <div class="why">💡 加班慰问场合，饮品是标配；优先热食/热饮；慰问场景偏轻，不点太重</div>
+</div>
+<div class="card">
+  <span class="plan-tab tab-save">🪙 省钱款</span>
+  <ul class="items"><li><span class="name">牛肉堡单品精选</span><span class="dots"></span><span class="price">¥14.00</span></li><li><span class="name">经典麦旋风</span><span class="dots"></span><span class="price">¥15.00</span></li><li><span class="name">人气经典随心配</span><span class="dots"></span><span class="price">¥14.90</span></li><li><span class="name">麦咖啡™奶铁</span><span class="dots"></span><span class="price">¥13.90</span></li></ul>
+  <div class="total"><span class="label">小计</span>
+    <span class="amount">¥57.80</span></div>
+  <div class="meta">🔥 &gt;=396 kcal（其中 2 项热量未知，未计入）</div>
+  <div class="why">💡 同样的场合要求，花最少的钱办到</div>
+</div>
+<div class="card">
+  <span class="plan-tab tab-bal">⚖️ 均衡款</span>
+  <ul class="items"><li><span class="name">牛肉堡单品精选</span><span class="dots"></span><span class="price">¥14.00</span></li><li><span class="name">“我就喜欢”鸡薯双全盒</span><span class="dots"></span><span class="price">¥15.90</span></li><li><span class="name">麦乐鸡</span><span class="dots"></span><span class="price">¥14.50</span></li><li><span class="name">麦咖啡™奶铁</span><span class="dots"></span><span class="price">¥13.90</span></li></ul>
+  <div class="total"><span class="label">小计</span>
+    <span class="amount">¥58.30</span></div>
+  <div class="meta">🔥 &gt;=609 kcal（其中 1 项热量未知，未计入）</div>
+  <div class="why">💡 在心意和预算之间取中，覆盖两边诉求</div>
+</div>
+<div class="compare">↔ 省钱款：比心意款省 ¥1.00，热量 +0 kcal；均衡款：比心意款省 ¥0.50，热量 +213 kcal</div>
+
+<div class="card">
+  <div class="meta">📍 麦当劳广州龙洞第二餐厅（龙洞购物中心首层）· 已用 MCP calculate-price 核价</div>
+  <div class="meta">🧾 麦咖啡奶铁促销：¥21.00 → ¥13.90，自动减 ¥7.10。金额来自 2026-10-18 麦当劳 MCP calculate-price 实时核价；价格随门店与时段变动，下单前以当次核价为准。</div>
+</div>
+
+<div class="footer">
+  本卡由 mcscene 生成 · 非麦当劳官方产品<br>
+  支付永远由你自己完成
+</div>
+</body>
+</html>
