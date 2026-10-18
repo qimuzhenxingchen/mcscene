@@ -169,9 +169,9 @@ mcscene/
 
 ## 互动演示（无需 Token，打开即玩）
 
-**在线版**：开启 GitHub Pages 后访问 <https://qimuzhenxingchen.github.io/mcscene/>（仓库 Settings → Pages → 选 main 分支即可）
+**在线版**：<https://qimuzhenxingchen.github.io/mcscene/>（GitHub Pages，源为本仓库根目录 `index.html`）
 
-**本地版**：直接用浏览器打开 [`demo/index.html`](demo/index.html)
+**本地版**：直接用浏览器打开根目录的 [`index.html`](index.html)
 
 Demo 内嵌龙洞第二餐厅 2026-10-18 真实菜单快照，可以：
 - 切换 10 种场合（庆生 / 道歉 / 加班慰问 / 给孩子……），看组合约束实时变化——庆生必有甜品、道歉强制单人份、加班必配热饮
