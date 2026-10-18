@@ -1,0 +1,33 @@
+MIT License
+
+Copyright (c) 2026 qimuzhenxingchen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+---
+
+附加说明（与 MIT 许可并行适用）：
+
+1. 本项目为"麦当劳程序员创意开发大赛"参赛作品，非麦当劳官方产品，与麦当劳及其
+   关联方无隶属关系；"麦当劳""McDonald's"及店名、餐品名等商标权利归其权利人所有，
+   本项目中的引用仅为说明性用途。
+2. 项目内嵌的菜单/营养数据快照采集自麦当劳中国 MCP 服务的实时返回，仅用于演示，
+   价格与供应状态以麦当劳官方渠道实时结果为准，不构成任何要约或承诺。
+3. 使用本 Skill 接入麦当劳 MCP 服务时，须遵守麦当劳中国的《使用条款》及
+   《麦当劳 MCP 服务规则》，并使用你自己申请的 MCP Token。

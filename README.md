@@ -167,6 +167,45 @@ mcscene/
 
 ---
 
+## 互动演示（无需 Token，打开即玩）
+
+**在线版**：开启 GitHub Pages 后访问 <https://qimuzhenxingchen.github.io/mcscene/>（仓库 Settings → Pages → 选 main 分支即可）
+
+**本地版**：直接用浏览器打开 [`demo/index.html`](demo/index.html)
+
+Demo 内嵌龙洞第二餐厅 2026-10-18 真实菜单快照，可以：
+- 切换 10 种场合（庆生 / 道歉 / 加班慰问 / 给孩子……），看组合约束实时变化——庆生必有甜品、道歉强制单人份、加班必配热饮
+- 拖动预算 25–150 元，方案实时重排
+- 勾"不吃辣"，含辣项即时消失
+- 三个方案（心意 / 均衡 / 省钱）带"为什么这么配"的可审计理由
+
+演示数据已标注 `SIMULATED` 口径说明；真实版接 MCP 后价格实时、可核价、可下单。
+
+---
+
+## 真实链路验证（2026-10-18）
+
+以下全部来自 McDonald's China MCP 实时调用，可用 `workbuddy.md` 中的对话记录核验：
+
+| 环节 | 结果 |
+|---|---|
+| `now-time-info` | ✓ 200，服务器时间 2026-10-18 17:37 GMT+8 |
+| `query-nearby-stores` | ✓ 广州龙洞 5 家门店（130m/224m/401m…） |
+| `query-meals` | ✓ 龙洞第二餐厅（storeCode 1400242）当次菜单 100+ SKU，快照存于 `skill/fixtures/` |
+| `list-nutrition-foods` | ✓ 160 项营养数据；快照中 22/29 项已映射热量，口味歧义项（麦旋风/派/新地）保持 UNKNOWN |
+| `query-store-coupons` | ✓ 返回空——该门店当前无可用券，如实展示 |
+| `calculate-price` ×3 | ✓ 庆生 ¥96.40 / 加班 ¥58.80 / 道歉 ¥44.90，与本地预排 100% 一致 |
+| `create-order` | **未调用**——全程无真实订单 |
+
+踩坑记录（评审可复核）：
+- `query-nearby-stores` 关键词传全称"广东工业大学龙洞校区"返回 `internal_error`，短词"龙洞"正常——门店搜索关键词需要短地标。
+- 加班慰问方案中的麦咖啡奶铁，菜单现价 ¥13.9，`calculate-price` 返回原价 ¥21 + 自动优惠 ¥7.10：预排引擎取菜单现价、核价返回拆分明细，两者天然一致。
+- 修正记录：早期宣传"情感场景没人做"不成立（麦门树洞、mcdinner-mate 等已在赛道内），本项目的差异化在"场合作为配餐引擎的一等输入"，见 `PLAN.md`。
+
+三张真实结果卡：`card-birthday.html` / `card-overtime.html` / `card-apology.html`（单文件、无外部资源、手机宽度，可直接打开预览）。
+
+---
+
 ## 已知边界（诚实版）
 
 1. **热量覆盖率取决于营养表**。`list-nutrition-foods` 未收录的餐品会标"未知"，方案里可能出现"≥ 1150 kcal"这类表述。

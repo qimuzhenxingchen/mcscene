@@ -1,0 +1,16 @@
+# 环境与凭证（永远不入库）
+*.env
+.env.*
+mcp-config.json
+mcp-config.local.json
+*token*
+!mcp-config.example.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 系统文件
+Thumbs.db
+.DS_Store

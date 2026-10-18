@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦事 mcscene · 互动演示（真实菜单快照）</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+       background: #f3ede1;
+       background-image: radial-gradient(#e8dfcd 1px, transparent 1px);
+       background-size: 18px 18px;
+       color: #33281e; padding: 14px; max-width: 430px; margin: 0 auto; }
+.hero { border-radius: 18px 18px 14px 14px; overflow: hidden;
+        background: linear-gradient(135deg, #ffd75e 0%, #ffab2e 60%, #ff9024 100%);
+        padding: 20px 18px 16px; color: #4a2c00;
+        box-shadow: 0 4px 14px rgba(217,119,6,.25); }
+.hero h1 { font-size: 21px; margin-top: 6px; letter-spacing: 1px; }
+.hero p { font-size: 12px; margin-top: 6px; line-height: 1.6; opacity: .85; }
+.panel { background: #fffdf8; border-radius: 14px; padding: 16px;
+         margin: 12px 0; box-shadow: 0 2px 8px rgba(90,60,20,.08); }
+.panel h2 { font-size: 13px; color: #a04d00; margin-bottom: 10px; letter-spacing: 1px; }
+.occ-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.occ { border: 2px solid #eee2cd; background: #fff; border-radius: 10px;
+       padding: 8px 4px; text-align: center; font-size: 12px; cursor: pointer;
+       transition: all .15s; }
+.occ.active { border-color: #e8590c; background: #fff4ec; font-weight: 700; }
+.occ .em { font-size: 18px; display: block; margin-bottom: 2px; }
+.row { display: flex; align-items: center; gap: 10px; margin-top: 12px;
+       font-size: 13px; }
+.row label { white-space: nowrap; color: #6b5c45; }
+input[type=range] { flex: 1; accent-color: #e8590c; }
+.budget-val { font-weight: 800; font-variant-numeric: tabular-nums;
+              color: #e8590c; min-width: 52px; text-align: right; }
+.hc { display: flex; gap: 6px; }
+.hc button { width: 34px; height: 30px; border: 2px solid #eee2cd; background: #fff;
+             border-radius: 8px; cursor: pointer; font-weight: 700; color: #6b5c45; }
+.hc button.active { border-color: #e8590c; color: #e8590c; background: #fff4ec; }
+.toggles { margin-top: 10px; display: flex; gap: 14px; font-size: 13px; color: #6b5c45; }
+.toggles label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+.greeting { position: relative; background: #fffdf8; border-radius: 14px;
+            padding: 18px 16px 14px; margin: 12px 0; border: 1px solid #f0e2c8; }
+.greeting::before { content: "\201C"; position: absolute; top: -2px; left: 10px;
+            font-size: 52px; color: #ffd75e; font-family: Georgia, serif; line-height: 1; }
+.greeting .line { font-size: 15px; line-height: 1.9; padding-left: 26px; }
+.plan-tab { display: inline-flex; gap: 5px; font-size: 12px; font-weight: 800;
+            color: #fff; border-radius: 8px 8px 8px 2px; padding: 4px 12px;
+            letter-spacing: 2px; }
+.tab-xinyi { background: linear-gradient(135deg, #ff8a3d, #e8590c); }
+.tab-bal    { background: linear-gradient(135deg, #4dabf7, #1971c2); }
+.tab-save   { background: linear-gradient(135deg, #51cf66, #2f9e44); }
+.card { background: #fffdf8; border-radius: 14px; padding: 16px; margin: 12px 0;
+        box-shadow: 0 2px 8px rgba(90,60,20,.08); }
+ul.items { list-style: none; margin-top: 10px; }
+ul.items li { display: flex; align-items: baseline; font-size: 14px; padding: 5px 0; }
+ul.items .dots { flex: 1; border-bottom: 2px dotted #e5d9c3; margin: 0 8px 4px; }
+ul.items .price { font-weight: 700; font-variant-numeric: tabular-nums; }
+.total { display: flex; align-items: baseline; margin-top: 8px; padding-top: 8px;
+         border-top: 2px dashed #eadfc8; }
+.total .amount { margin-left: auto; font-size: 20px; font-weight: 800;
+                 font-variant-numeric: tabular-nums; }
+.meta { font-size: 12px; color: #8a7a60; margin-top: 6px; line-height: 1.6; }
+.why { font-size: 12px; color: #a08c6a; margin-top: 8px; padding: 8px 10px;
+       background: #faf5e9; border-radius: 8px; line-height: 1.6; }
+.empty { text-align: center; padding: 20px; color: #a89a80; font-size: 14px;
+         line-height: 1.8; }
+.footer { text-align: center; font-size: 11px; color: #a89a80; margin: 16px 0 8px;
+          line-height: 1.8; }
+.note { font-size: 11px; color: #b3a488; margin-top: 8px; line-height: 1.6; }
+.badge { display: inline-flex; font-size: 11px; font-weight: 700; padding: 3px 10px;
+         border-radius: 20px; background: #fde8d7; color: #a04d00;
+         border: 1px solid #e8a865; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="badge">SIMULATED 互动演示 · 真实菜单快照 2026-10-18</span>
+  <h1>麦事 mcscene 🍟</h1>
+  <p>选一个场合、拖一个预算，看它怎么配餐、怎么讲理由。<br>
+     真实版接麦当劳 MCP 后价格实时、可核价、可下单（需你自己确认）。</p>
+</div>
+
+<div class="panel">
+  <h2>① 今天为什么请这顿？</h2>
+  <div class="occ-grid" id="occGrid"></div>
+  <div class="row"><label>预算 ¥</label>
+    <input type="range" id="budget" min="25" max="150" step="5" value="80">
+    <span class="budget-val" id="budgetVal">¥80</span></div>
+  <div class="row"><label>几个人</label>
+    <div class="hc" id="hc"></div>
+    <label style="margin-left:auto"><input type="checkbox" id="noSpicy"> 不吃辣</label>
+  </div>
+</div>
+
+<div id="greeting"></div>
+<div id="plans"></div>
+
+<div class="footer">
+  演示数据：麦当劳广州龙洞第二餐厅（storeCode 1400242）2026-10-18 快照<br>
+  本页由 mcscene 生成 · 非麦当劳官方产品 · 价格以官方实时为准
+</div>
+
+<script>
+// ---- 真实菜单快照（storeCode 1400242，2026-10-18，query-meals + list-nutrition-foods）----
+const MEALS = {"storeCode":"1400242","items":[
+ { "code":"1120", "name":"双层吉士汉堡", "category":"burger", "price":23.0, "kcal":429, "tags":[] },
+ { "code":"1100", "name":"巨无霸", "category":"burger", "price":26.5, "kcal":513, "tags":[] },
+ { "code":"1406", "name":"板烧鸡腿堡", "category":"burger", "price":24.0, "kcal":391, "tags":[] },
+ { "code":"1440", "name":"麦辣鸡腿汉堡", "category":"burger", "price":23.0, "kcal":485, "tags":["spicy"] },
+ { "code":"1450", "name":"麦香鸡", "category":"burger", "price":17.0, "kcal":369, "tags":[] },
+ { "code":"9900008747", "name":"牛肉堡单品精选", "category":"burger", "price":14.0, "kcal":248, "tags":[] },
+ { "code":"4810", "name":"薯条", "category":"side", "price":14.0, "kcal":289, "tags":["hot"] },
+ { "code":"4437", "name":"玉米杯", "category":"side", "price":13.5, "kcal":87, "tags":["hot"] },
+ { "code":"521741", "name":"脆薯饼", "category":"side", "price":8.5, "kcal":146, "tags":["hot"] },
+ { "code":"6102", "name":"苹果片", "category":"side", "price":7.0, "kcal":32, "tags":[] },
+ { "code":"1401", "name":"麦乐鸡", "category":"chicken", "price":14.5, "kcal":213, "tags":["shareable"] },
+ { "code":"1700", "name":"麦辣鸡翅", "category":"chicken", "price":15.0, "kcal":224, "tags":["spicy","shareable"] },
+ { "code":"9900016076", "name":"“我就喜欢”鸡薯双全盒", "category":"chicken", "price":15.9, "kcal":null, "tags":["shareable"] },
+ { "code":"9900008751", "name":"可乐", "category":"drink", "price":9.5, "kcal":147, "tags":["cold","caffeine"] },
+ { "code":"3010", "name":"雪碧", "category":"drink", "price":9.5, "kcal":105, "tags":["cold"] },
+ { "code":"515280", "name":"阳光柠檬红茶", "category":"drink", "price":9.5, "kcal":117, "tags":["cold"] },
+ { "code":"3505", "name":"锡兰红茶", "category":"drink", "price":11.0, "kcal":2, "tags":["hot"] },
+ { "code":"3755", "name":"纯牛奶(盒装)", "category":"drink", "price":10.5, "kcal":129, "tags":["cold"] },
+ { "code":"3757", "name":"纯悦", "category":"drink", "price":7.5, "kcal":0, "tags":["cold"] },
+ { "code":"520689", "name":"鲜萃咖啡", "category":"drink", "price":10.0, "kcal":13, "tags":["hot","caffeine"] },
+ { "code":"507411", "name":"麦咖啡™美式", "category":"drink", "price":11.9, "kcal":13, "tags":["hot","caffeine"] },
+ { "code":"507409", "name":"麦咖啡™奶铁", "category":"drink", "price":13.9, "kcal":148, "tags":["hot","caffeine"] },
+ { "code":"9900008754", "name":"经典麦旋风", "category":"dessert", "price":15.0, "kcal":null, "tags":["cold"] },
+ { "code":"515837", "name":"圆筒冰淇淋", "category":"dessert", "price":5.0, "kcal":93, "tags":["cold"] },
+ { "code":"521951", "name":"灰焰圆筒", "category":"dessert", "price":5.0, "kcal":null, "tags":["cold"] },
+ { "code":"9900008752", "name":"派", "category":"dessert", "price":8.5, "kcal":null, "tags":["hot"] },
+ { "code":"9900008745", "name":"新地", "category":"dessert", "price":12.5, "kcal":null, "tags":["cold"] },
+ { "code":"9900013304", "name":"人气经典随心配", "category":"side", "price":14.9, "kcal":null, "tags":[] },
+ { "code":"9900015568", "name":"精选超值随心配", "category":"side", "price":13.9, "kcal":null, "tags":[] }
+]};
+
+// ---- 场合策略（与 skill/scripts/mcsc_plan.py 的 OCCASION_POLICY 同步）----
+const POLICY = {
+  birthday:     { label:"庆生", em:"🎂", must:["dessert"], prefer:["shareable"] },
+  celebrate:    { label:"庆祝", em:"🎉", must:["dessert"], prefer:["shareable"] },
+  anniversary:  { label:"纪念日", em:"💞", must:["dessert"] },
+  apology:      { label:"道歉", em:"🙇", must:["dessert"], singleMain:true },
+  cheer_up:     { label:"安慰", em:"🫂", must:["drink","dessert"], prefer:["hot"] },
+  overtime:     { label:"加班慰问", em:"🌙", must:["drink"], prefer:["hot"], light:true },
+  thanks:       { label:"答谢", em:"🙏", must:[] },
+  kid:          { label:"给孩子", em:"🎈", must:["dessert"], kid:true },
+  self:         { label:"自己吃", em:"✨", value:true },
+  just_because: { label:"没理由", em:"🌻", must:[] }
+};
+const CAT_ZH = { burger:"汉堡", breakfast:"早餐主食", side:"小食", drink:"饮品", dessert:"甜品", chicken:"小食" };
+
+// ---- 心意卡文案（按场合默认语气预生成，已过 mcsc_copyguard）----
+const GREETINGS = {
+  birthday:    ["不知道说什么，就先给你点了一份你爱吃的 🍔","今天不用赶时间，慢慢吃，我陪你 (´꒳`)♡","吃完记得拍照给我看看呀 ✨"],
+  celebrate:   ["值得庆祝的事，就要吃点好的 🎉","这一顿算我的，你负责开心 (๑•̀ㅂ•́)و✧","干杯的话，用可乐代替一下 🥤"],
+  anniversary: ["又一年了，还是想跟你一起吃饭 💞","老地方，老口味，新的一天 (´꒳`)♡","纪念日快乐，慢慢吃 🍟"],
+  apology:     ["上次是我没做好，这顿算我的 🙇","不用说什么，吃完就好 (っ- ‸ - ς)","以后我注意！麦旋风赔罪 🍦"],
+  cheer_up:    ["今天辛苦了，先吃点热的 🫂","甜的管不了大事，但能管这一会儿 🍦","没事的，吃完这顿再说 (っ˘ω˘c)"],
+  overtime:    ["加班辛苦啦，加个餐 ☕","咖啡趁热喝，别空着肚子硬撑 💪","不用回消息，吃就行 🫡"],
+  thanks:      ["这次多亏了你，请顿饭不算什么 🙏","别跟我客气，点你想吃的 (๑•̀ㅂ•́)و✧","下次有用得上的地方尽管说 🤝"],
+  kid:         ["今天乖乖的，奖励一个开心乐园餐 🎈","薯条给你，玩具也给你 (๑˃ᴗ˂)ﻭ","吃完记得刷牙哦 🦷"],
+  self:        ["今天不想将就，好好吃一顿 ✨","一个人的饭也要认真点 (￣▽￣)","不用理由，想吃就吃 🍟"],
+  just_because:["突然想吃麦当劳了，你要不要一起 🌻","没什么特别的理由，就是想吃 (￣▽￣)","吃到就是赚到，走起 🍟"]
+};
+
+const MAIN_CATS = ["burger","breakfast"];
+let state = { occasion:"birthday", budget:80, headcount:2, noSpicy:false };
+
+function policy(){ return POLICY[state.occasion]; }
+
+function allowed(it, pol){
+  if (it.price == null) return false;
+  if (state.noSpicy && it.tags.includes("spicy")) return false;
+  if (pol.kid && (it.tags.includes("caffeine") || it.tags.includes("spicy"))) return false;
+  return true;
+}
+function fitOf(items, pol, hc){
+  const cats = new Set(items.map(i=>i.category));
+  const tags = new Set(items.flatMap(i=>i.tags));
+  const mains = items.filter(i=>MAIN_CATS.includes(i.category)).length;
+  return 2*(pol.must||[]).filter(m=>cats.has(m)).length
+       + (pol.prefer||[]).filter(p=>tags.has(p)).length
+       + (mains>=hc ? 1 : 0);
+}
+function kcalOf(items){
+  const unknown = items.filter(i=>i.kcal==null).length;
+  const sum = items.reduce((s,i)=>s+(i.kcal||0),0);
+  return unknown===0 ? {text:`约 ${sum} kcal`} : {text:`≥${sum} kcal（其中 ${unknown} 项热量未知，未计入）`, unknown};
+}
+function planOf(items, pol, hc){
+  return { items, total: Math.round(items.reduce((s,i)=>s+i.price,0)*100)/100,
+           fit: fitOf(items, pol, hc) };
+}
+function buildPlans(){
+  const pol = policy();
+  const hc = pol.singleMain ? 1 : state.headcount;
+  const pool = MEALS.items.filter(i=>allowed(i,pol));
+  const mains = pool.filter(i=>MAIN_CATS.includes(i.category));
+  const others = [...pool.filter(i=>!MAIN_CATS.includes(i.category))]
+    .sort((a,b)=>b.price-a.price).slice(0,10);
+  if (!mains.length) return [];
+  const n = Math.max(1, Math.min(hc,5));
+  const bases = [];
+  const distinct = [...new Map(mains.map(m=>[m.code,m])).values()].slice(0,n);
+  const cheapest = [...mains].sort((a,b)=>a.price-b.price).slice(0,n);
+  const dearest  = [...mains].sort((a,b)=>b.price-a.price).slice(0,n);
+  for (const b of [distinct, cheapest, dearest]) {
+    if (b.length>=n) { const sig=b.map(i=>i.code).sort().join();
+      if (!bases.some(x=>x.sig===sig)) bases.push({sig, items:b}); }
+  }
+  const cands = new Map();
+  for (const base of bases) {
+    const baseCost = base.items.reduce((s,i)=>s+i.price,0);
+    if (baseCost > state.budget) continue;
+    for (let r=0; r<=3; r++) {
+      const combos = kCombos(others, r);
+      for (const extra of combos) {
+        const codes = extra.map(i=>i.code);
+        if (new Set(codes).size !== codes.length) continue;
+        if (r>=2 && new Set(extra.map(i=>i.category)).size < r-1) continue;
+        const chosen = [...base.items, ...extra];
+        const p = planOf(chosen, pol, hc);
+        if (p.total > state.budget) continue;
+        const cats = new Set(chosen.map(i=>i.category));
+        if ((pol.must||[]).some(m=>!cats.has(m))) continue;
+        if (chosen.filter(i=>MAIN_CATS.includes(i.category)).length < hc) continue;
+        const sig = chosen.map(i=>i.code).sort().join();
+        if (!cands.has(sig) || cands.get(sig).fit < p.fit) cands.set(sig, p);
+      }
+    }
+  }
+  let plans = [...cands.values()].sort((a,b)=>{
+    if (b.fit !== a.fit) return b.fit - a.fit;
+    if (pol.value) return a.total - b.total;
+    if (pol.light) return kcalSum(a) - kcalSum(b);
+    return b.total - a.total;
+  }).slice(0,8);
+  return showcase(plans, pol, hc);
+}
+function kcalSum(p){ return p.items.reduce((s,i)=>s+(i.kcal||0),0); }
+function kCombos(arr, k){
+  if (k===0) return [[]];
+  const out=[];
+  for (let i=0;i<=arr.length-k;i++)
+    for (const c of kCombos(arr.slice(i+1), k-1)) out.push([arr[i],...c]);
+  return out;
+}
+function showcase(plans, pol, hc){
+  if (!plans.length) return [];
+  const must = pol.must||[];
+  const fullFit = p => { const cats=new Set(p.items.map(i=>i.category));
+    return must.every(m=>cats.has(m)) && p.items.filter(i=>MAIN_CATS.includes(i.category)).length>=hc; };
+  const xinyi = plans[0];
+  const picks = [{label:"心意款", p:xinyi}];
+  const qual = plans.filter(fullFit);
+  if (qual.length){
+    const save = [...qual].sort((a,b)=>a.total-b.total || kcalSum(a)-kcalSum(b))[0];
+    if (save !== xinyi) picks.push({label:"省钱款", p:save});
+    const hi = Math.max(...qual.map(p=>p.total)), lo = save.total, mid=(hi+lo)/2;
+    const rest = qual.filter(p=>p!==xinyi && p!==save);
+    if (rest.length){
+      const bal = [...rest].sort((a,b)=>
+        Math.abs(a.total-mid)-Math.abs(b.total-mid) || kcalSum(a)-kcalSum(b))[0];
+      picks.push({label:"均衡款", p:bal});
+    }
+  }
+  return picks;
+}
+
+// ---- 渲染 ----
+function render(){
+  document.getElementById("budgetVal").textContent = "¥"+state.budget;
+  document.querySelectorAll("#occGrid .occ").forEach(el=>
+    el.classList.toggle("active", el.dataset.occ===state.occasion));
+  document.querySelectorAll("#hc button").forEach(el=>
+    el.classList.toggle("active", +el.dataset.n===state.headcount));
+  const pol = policy();
+  const g = document.getElementById("greeting");
+  g.innerHTML = '<div class="greeting">' +
+    GREETINGS[state.occasion].map(l=>`<div class="line">${l}</div>`).join("") + "</div>";
+  const picks = buildPlans();
+  const box = document.getElementById("plans");
+  if (!picks.length){
+    box.innerHTML = '<div class="card"><div class="empty">这个预算配不出满足「'+
+      pol.label+'」要求的组合 😔<br>试试提高预算，或换一个场合</div></div>';
+    return;
+  }
+  const whyText = (pol.must||[]).map(m=>CAT_ZH[m]+"是标配").join("、")
+    + (pol.prefer&&pol.prefer.length ? "，优先"+({shareable:"可分享",hot:"热食/热饮"})[pol.prefer[0]] : "")
+    + (pol.singleMain ? "；一对一的场合，不摆大桌" : "")
+    + (pol.light ? "；慰问场景偏轻" : "") + (pol.value ? "；自己吃，实惠优先" : "")
+    + (pol.kid ? "；儿童模式：排除辣与含咖啡因" : "");
+  box.innerHTML = picks.map(({label,p})=>{
+    const tab = {"心意款":"tab-xinyi","均衡款":"tab-bal","省钱款":"tab-save"}[label];
+    const icon = {"心意款":"💝","均衡款":"⚖️","省钱款":"🪙"}[label];
+    const k = kcalOf(p.items);
+    return `<div class="card">
+      <span class="plan-tab ${tab}">${icon} ${label}</span>
+      <ul class="items">${p.items.map(i=>
+        `<li><span>${i.name}</span><span class="dots"></span><span class="price">¥${i.price.toFixed(2)}</span></li>`).join("")}</ul>
+      <div class="total"><span class="meta">小计</span><span class="amount">¥${p.total.toFixed(2)}</span></div>
+      <div class="meta">🔥 ${k.text} · 预算 ¥${state.budget}，剩 ¥${(state.budget-p.total).toFixed(2)}</div>
+      <div class="why">💡 ${label==="心意款" ? whyText : "同样的场合要求，"+(label==="省钱款"?"花最少的钱办到":"在心意和预算之间取中")}</div>
+    </div>`;
+  }).join("");
+}
+
+// ---- 初始化控件 ----
+const grid = document.getElementById("occGrid");
+grid.innerHTML = Object.entries(POLICY).map(([k,v])=>
+  `<div class="occ" data-occ="${k}"><span class="em">${v.em}</span>${v.label}</div>`).join("");
+grid.addEventListener("click", e=>{
+  const el = e.target.closest(".occ"); if(!el) return;
+  state.occasion = el.dataset.occ; render();
+});
+const hcBox = document.getElementById("hc");
+hcBox.innerHTML = [1,2,3].map(n=>`<button data-n="${n}">${n}</button>`).join("");
+hcBox.addEventListener("click", e=>{
+  const el = e.target.closest("button"); if(!el) return;
+  state.headcount = +el.dataset.n; render();
+});
+document.getElementById("budget").addEventListener("input", e=>{
+  state.budget = +e.target.value; render();
+});
+document.getElementById("noSpicy").addEventListener("change", e=>{
+  state.noSpicy = e.target.checked; render();
+});
+render();
+</script>
+</body>
+</html>
