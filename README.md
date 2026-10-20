@@ -130,7 +130,7 @@ python skill/scripts/mcsc_copyguard.py "生日快乐，吃了就会开心起来�
 python skill/tests/test_engine.py
 ```
 
-`fixtures/` 里的数据带 `SIMULATED` 标记，脚本会主动打警告——**演示数据不会伪装成真实菜单**。
+`fixtures/` 里的数据带 `SIMULATED` 标记，脚本会主动打警告——**演示数据不会伪装成真实菜单**。快照的数据来源、营养覆盖率与 UNKNOWN 保护约定详见 [`skill/fixtures/README.md`](skill/fixtures/README.md)。
 
 ---
 
@@ -192,7 +192,7 @@ Demo 内嵌龙洞第二餐厅 2026-10-18 真实菜单快照，可以：
 | `now-time-info` | ✓ 200，服务器时间 2026-10-18 17:37 GMT+8 |
 | `query-nearby-stores` | ✓ 广州龙洞 5 家门店（130m/224m/401m…） |
 | `query-meals` | ✓ 龙洞第二餐厅（storeCode 1400242）当次菜单 100+ SKU，快照存于 `skill/fixtures/` |
-| `list-nutrition-foods` | ✓ 160 项营养数据；快照中 22/29 项已映射热量，口味歧义项（麦旋风/派/新地）保持 UNKNOWN |
+| `list-nutrition-foods` | ✓ 160 项营养数据；快照中 21/29 项已映射热量，口味歧义项（麦旋风/派/新地）与组合品保持 UNKNOWN |
 | `query-store-coupons` | ✓ 返回空——该门店当前无可用券，如实展示 |
 | `calculate-price` ×3 | ✓ 庆生 ¥96.40 / 加班 ¥58.80 / 道歉 ¥44.90，与本地预排 100% 一致 |
 | `create-order` | **未调用**——全程无真实订单 |
